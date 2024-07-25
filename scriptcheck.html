@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function bodyload(){
+            document.getElementById("p").innerText="Welcome to Javascript";
+        }
+    </script>
+</head>
+<body >
+    <noscript><h1>In your browser JavaScript Disabled<br>Please enable it</h1></noscript>
+    <p id="p"></p>
+    <button onclick="bodyload()">Submit</button>
+    <fieldset>
+        <legend>Regestration form </legend>
+        <dt><label>Name</label></dt>
+        <dd><input type="text"></dd>
+       <dt><lable>Password</lable></dt>
+       <dd><input type="password"></dd>
+    </fieldset>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function submit(){
+            var username=document.getElementById("un").value;
+            document.getElementById("un").value=username.toUpperCase();
+        }
+    </script>
+</head>
+<body>
+   <!-- User Name : <input type="text" autofocus id="un" onblur="submit()" >
+   User Name : <input type="text" autofocus id="un" onkeyup="submit()" > -->
+   <!-- <div>
+    <input type="button" value="Submit" onkeyup="submit()">
+   </div> -->
+    User Name : <input type="text" autofocus id="un" onkeydown="submit()" >
+</body>
+</html>

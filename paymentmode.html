@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function bodyload(){
+            mode=document.getElementsByName("pay");
+            confirm(`The no of payment options are :${mode.length}`);
+        }
+        function DeleteClicks(){
+            alert("Delet Record\nRecord will Deleted be deleted permanently");
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <fieldset>
+        <legend>Payment Mode</legend>
+        <input type="radio" name="pay">Cash
+        <input type="radio" name="pay">UPI
+        <input type="radio" name="pay">Credit Card
+        <input type="radio" checked name="pay">Debit Card
+        <input type="radio" name="pay">Net Banking
+    </fieldset>
+    <button onclick="DeleteClicks()" style="margin-top: 20px;">Delete</button>
+</body>
+</html>

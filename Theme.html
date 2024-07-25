@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Example</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+            
+        
+        }
+        form{
+            border: 3px solid gray;
+            padding: 20px;
+        }
+    </style>
+    <script>
+        function ChangeMode(){
+           var theme=document.getElementById("theme");
+            if(theme.checked){
+                document.querySelector("form").className="bg-dark text-white p-4 m-2";
+                document.querySelector("button").className="bg-dark text-white p-2 w-100";
+            }else{
+                var theme=document.getElementById("theme");
+                document.querySelector("form").className="bg-white text-dark p-4 ";
+                document.querySelector("button").className="bg-white text-dark p-2 w-100";
+            }
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <div class="container">
+        <form>
+            <div class="form-switch "> 
+                <input type="checkbox" onchange="ChangeMode()" id="theme" class="form-check-input me-2">DarkMode
+            </div>
+            <h2>Register</h2>
+           <dl>
+            <dt>User Name</dt>
+            <dd><input type="text"></dd>
+            <dt>Paaword</dt>
+            <dd><input type="password"></dd>
+            <dt>E-mail</dt>
+            <dd><input type="email"></dd>
+            <dt>Age</dt>
+            <dd><input type="number"></dd>
+           </dl>
+            <button class=" w-100">Register</button>
+        </form>
+    </div>
+</body>
+</html>

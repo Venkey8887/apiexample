@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Example</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function GetClick(){
+            document.getElementById("detailsContainer").style="display:block";
+            fetch("../data/product.json")
+            .then(function(response){
+                    return response.json();
+            })
+            .then(function(data){
+
+                document.getElementById("lblid").innerHTML=data.id;
+                document.getElementById("lblname").innerHTML=data.Name;
+                document.getElementById("lblprice").innerHTML=data.Price;
+                document.getElementById("img").src=data.Photo;
+                document.getElementById("lblstock").innerHTML=data.Stock;
+            })
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <div>
+        <button onclick="GetClick()" class="btn btn-primary">Get Products</button>
+    </div>
+    <div class="mt-3" id="detailsContainer" style="display: none;">
+        <h2>Products Details</h2>
+        <dl>
+            <dt>Id</dt>
+            <dd id="lblid"></dd>
+            <dt>Name</dt>
+            <dd id="lblname"></dd>
+            <dt>Price</dt>
+            <dd id="lblprice"></dd>
+            <dt>Image</dt>
+            <dd><img id="img"></dd>
+            <dt>Sock</dt>
+            <dd id="lblstock"></dd>
+        </dl>
+    </div>
+</body>
+</html>

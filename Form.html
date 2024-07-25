@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    function Check(){
+        var Name=document.getElementById("n").value;
+        var fname=document.getElementById("fn").value;
+        var standerd=document.getElementById("c").value;
+        var rollnumber=document.getElementById("r").value;
+        var tel=document.getElementById("tm").value;
+        var eng=document.getElementById("em").value;
+        var mat=document.getElementById("mm").value;
+        var phy=document.getElementById("pm").value;
+        var che=document.getElementById("cm").value;
+        var soc=document.getElementById("sm").value;
+
+        var d1=document.getElementById("display1");
+        var d2=document.getElementById("display2");
+        var d3=document.getElementById("display3");
+        var d4=document.getElementById("display4");
+        var d5=document.getElementById("display5");
+        var d6=document.getElementById("display6");
+        var obtained=parseInt(tel)+parseInt(eng)+parseInt(mat)+parseInt(phy)+parseInt(che)+parseInt(soc);
+        var persentage=obtained*100/600;
+
+        d1.innerHTML="Your name is :"+Name;
+        d2.innerHTML="Your father name is :"+fname;
+        d3.innerHTML="your class is :"+ standerd;
+        d4.innerHTML="Your rollNumber is :"+rollnumber;
+        d5.innerHTML="Your marks are :"+obtained;
+        d6.innerHTML="Your Percentage is :"+persentage;
+
+    }
+</script>
+</head>
+<body>
+    <center>
+    <table border="3" height="400" weidth="400">
+        <form>
+            <tr>
+                <th colspan="3">Mark Sheet</th>
+            </tr>
+            <tr>
+                <td><label>Name </label></td>
+                <td><input type="text" id="n"/></td>
+            </tr>
+            <tr><td><label>FatherName</label></td>
+                <td><input type="text" id="fn"/></td></tr>
+            <tr><td><label>Class</label></td>
+                <td><input type="text" id="c"/></td></tr>
+            <tr><td><label>Roll Number</label></td>
+                <td><input type="text" id="r"/></td></tr>
+            <tr><td><label>Telugu Marks</label></td>
+                <td><input type="text" id="tm"/></td></tr>
+                <tr><td><label>Engish Marks</label></td>
+                    <td><input type="text" id="em"/></td></tr>
+                    <tr><td><label>Maths Marks</label></td>
+                        <td><input type="text" id="mm"/></td></tr>
+                        <tr><td><label>Physics Marks</label></td>
+                            <td><input type="text" id="pm"/></td></tr>
+                            <tr><td><label>Chemistry Marks</label></td>
+                                <td><input type="text" id="cm"/></td></tr>
+                                <tr><td><label>Social Marks</label></td>
+                                    <td><input type="text" id="sm"/></td></tr>
+                                    <tr>
+                                        <td><input type="button" value="Submit" onclick="Check()" /></td>
+                                    </tr>                    
+        </form>
+    </table>
+   <h1 id="display1"></h1>
+   <h1 id="display2"></h1>
+   <h1 id="display3"></h1>
+   <h1 id="display4"></h1>
+   <h1 id="display5"></h1>
+   <h1 id="display6"></h1>
+   </center>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Verifypassword(){
+            var password= document.getElementById("password").value;
+            var error=document.getElementById("error");
+            if(password=="admin"){
+            document.write("Login Succesfull..")
+        }
+        else{
+            error.innerHTML="Login faild".fontcolor("red");
+        }
+    }
+    </script>
+</head>
+<body>
+    <input type="password" id="password" autofocus>
+    <button onclick="Verifypassword()">Login</button>
+    <dd id="error"></dd>
+</body>
+</html>

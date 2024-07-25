@@ -1,0 +1,29 @@
+<script>
+    var products=[1,"Maruthi",["Delhi","Hyderabad","Bombai"],(function(){document.write("Welcome  to Our brand new Showroom");})];
+    var [id,name,shippedTo,Welcome] =products;
+    Welcome();
+    document.write(name+"<br>");
+
+
+    var Categories=["Electronics","Footware","Jewlearys"];
+    Categories.map(function(Categories){
+        document.write(`<button>${Categories}</button><br>`);
+        // document.write(Categories.join("--->"));
+    });
+        var items=["Rice Cooker","Air Conditionar","Refregirator"];
+        items.map(function(items){
+            document.write(`<table><tr><td>${items}</td></tr></table>`);
+        });
+
+        var numbers=[1,2,3,4,56,];
+        document.write(numbers.join("--->"));
+
+        var path=["../public/images/jacket.png","../public/images/car.png","../public/images/bike.jpg","../public/images/benz.png"];
+        path.map(function(path){
+            document.write(`<div><img src=${path} width="100" height="100"></div><br>`);
+
+        });
+
+       
+
+</script>

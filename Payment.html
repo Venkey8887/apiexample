@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forwad Jump Exaple</title>
+    <script>
+        var details={
+            "Cardnumber":4444555566667777,
+            "CVV":4320,
+            "Expaire":2025
+        }
+        function verifyCard(){
+            var card=document.getElementById("txtnumber").value;
+            if(card==details.Cardnumber){
+                document.getElementById("txtcvv").disabled=false;
+            }
+        }
+        function verifyCvv(){
+            var cvv=document.getElementById("txtcvv").value;
+            if(cvv==details.CVV){
+                document.getElementById("lstyear").disabled=false;
+            }
+        }
+        function verifyYear(){
+            var year=document.getElementById("lstyear").value;
+            if(year==details.Expaire){
+                document.getElementById("btnpay").disabled=false;
+            }
+        }
+        function payClick(){
+            document.getElementById("msg").innerHTML="<h2>Payment Succesfully Completed</h2>";
+        }
+    </script>
+</head>
+<body>
+   <div>
+    <fieldset>
+        <legend>Payment Details</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd><input onkeyup="verifyCard()" type="text" id="txtnumber"></dd>
+            <dt>CVV</dt>
+            <dd><input disabled onkeyup="verifyCvv()" type="number" size="4" id="txtcvv"></dd>
+            <dt>Expaire</dt>
+            <dd>
+                <select onchange="verifyYear()" id="lstyear" disabled>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                </select>
+            </dd>
+        </dl>
+        <button onclick="payClick()()" id="btnpay" disabled>Pay</button>
+    </fieldset>
+    <label id="msg"></label>
+   </div> 
+</body>
+</html>

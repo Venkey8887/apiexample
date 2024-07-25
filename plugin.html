@@ -1,0 +1,10 @@
+<script>
+    for(var item of navigator.plugins){
+        document.write(item.name + "<br>");
+    }
+    if(navigator.plugins["Chrome PDF Viewer"==undefined]){
+        document.write("You Have to install that one");
+    }else{
+        document.write("Use can use it");
+    }
+</script>

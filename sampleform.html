@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Submit(){
+            document.getElementById("N").innerHTML=document.getElementById("username").value;
+            document.getElementById("P").innerHTML=document.getElementById("password").value;
+            document.getElementById("A").innerHTML=document.getElementById("age").value;
+        }
+    </script>
+    <style>
+        dl{
+            display: grid;
+            grid-template-columns: 4fr 8fr;
+            list-style: none;
+        }
+        dt{
+            margin-bottom: 5px;
+            background-color: yellow;
+            color: red;
+            
+        }
+        dd{
+            margin-bottom: 5px;
+            background-color:goldenrod;
+            color: rgb(68, 65, 65);
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div>
+            <label>UserName</label>
+            <div>
+                <input type="text" id="username" >
+            </div>
+        </div>
+        <div>
+            <label>Password</label>
+            <div>
+                <input type="password" id="password" >
+            </div>
+        </div>
+        <div>
+            <label>Age</label>
+            <div>
+                <input type="number" id="age" min="15" max="55" >
+            </div>
+        </div>
+        <button type="button" onclick="Submit()">Submit</button>
+    </form>
+    <dl>
+        <dt>Name</dt>
+        <dd id="N"></dd>
+        <dt>Password</dt>
+        <dd id="P"></dd>
+        <dt>Age</dt>
+        <dd id="A"></dd>
+    </dl>
+</body>
+</html>

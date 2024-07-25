@@ -1,0 +1,19 @@
+<script>
+    var Product={
+        "Name":"",
+        "Price":0,
+        "Stock":false,
+        "Quantity":0,
+        "Total":function(){
+            return this.Price*this.Quantity;
+        },
+        "Print":function(){
+            document.write(`Name=${this.Name}<br>Price=${this.Price}<br>Stock=${this.Stock}<br>Quentity=${this.Quantity}<br>Total=${this.Total()}`);
+        }
+    }
+    Product.Name=prompt("Enter Product Name");
+    Product.Price=parseFloat(prompt("Enter Price"));
+    Product.Quantity=parseFloat(prompt("Enter Quentity"));
+    Product.Stock=prompt("Enter Stock true/false");
+    Product.Print();
+</script>

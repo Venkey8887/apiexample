@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Deleteclick(){
+            flag=confirm("Dlete Record\nRecord will be deleted perminently");
+            console.warn("Warning : Delete Clicked");
+            if(flag==true){
+                document.querySelector("p").innerHTML="<b>Record Deleted</b>";
+            }else{
+                document.querySelector("p").innerHTML="<i>Cancelled....</i>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="Deleteclick()">Delete</button>
+    <p align="center"></p>
+</body>
+</html>

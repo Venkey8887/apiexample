@@ -1,0 +1,66 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function bodyload(){
+                fetch("http://fakestoreapi.com/products/categories")
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(categories){
+                    for(var  item of categories){
+                        var li=document.createElement("li");
+                        li.innerHTML=item.toUpperCase();
+                        document.querySelector("ol").appendChild(li);
+
+                        var option =document.createElement("option");
+                        option.text=item;
+                        option.value=item;
+                        document.querySelector("select").appendChild(option);
+
+                    }
+                })
+                
+            }
+        </script>
+    </head>
+    <body onload="bodyload()">
+        <ol>
+
+        </ol>
+        <select>
+
+        </select>
+    </body>
+</html> --><!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function bodyload(){
+                fetch("http://fakestoreapi.com/products/categories")
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(categories){
+                    for(var item of categories){
+                        var li = document.createElement("li");
+                        li.innerHTML = item.toUpperCase();
+                        document.querySelector("ol").appendChild(li);
+
+                        var option = document.createElement("option");
+                        option.text = item;
+                        option.value = item;
+                        document.querySelector("select").appendChild(option);
+                    }
+                })
+                .catch(function(error) {
+                    console.error('Error fetching categories:', error);
+                });
+            }
+        </script>
+    </head>
+    <body onload="bodyload()">
+        <ol></ol>
+        <select></select>
+    </body>
+</html>

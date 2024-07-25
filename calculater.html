@@ -1,0 +1,42 @@
+<script>
+    var num1=prompt("Enter first number");
+    var num2=prompt("Enter first number");
+    var opt=prompt("Select one operator +,-.*,/,%");
+
+    function add(a,b){
+            var res=parseInt(a)+parseInt(b)
+            document.write(`Addition result is ${res}`);
+    }
+    function  sub(a,b){
+            var res=parseInt(a)-parseInt(b);
+            document.write(`Substraction result is ${res}`);
+    }
+    function mult(a,b){
+        var res=parseInt(a)*parseInt(b);
+        document.write(`Multiplication result is : ${res}`);
+    }
+    function div(a,b){
+        var rse=parseInt(a)%parseInt(b);
+        document.write(`Division Result is :${res}`);
+    }
+    function mod(a,b){
+        var res=parseInt(a)/parseInt(b);
+        document.write(`Moudles Result is :${res}`);
+    }
+    if(opt == "+")
+    {
+            add(num1,num2);
+    }
+    else if(opt == "-"){
+            sub(num1,num2);
+    }
+    else if(opt == "*"){
+        mult(num1,num2);
+    }
+    else if(opt == "%"){
+            div(num1,num2);
+    }
+    else if(opt == "/"){
+            mod(num1,num2);
+    }
+</script>

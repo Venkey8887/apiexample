@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showing Error</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function RegisterClick(){
+             var usererror= document.getElementById("UserError");
+             var username=document.getElementById("userName").value;
+             if(username==""){
+                usererror.innerHTML="User Name Required";
+                // usererror.style.color="red";
+                // usererror.style.fontStyle="italic";
+                usererror.className="text-danger"
+             }
+            
+            }
+        function VerifyUser(){
+            var usererror= document.getElementById("UserError");
+             var username=document.getElementById("userName").value;
+             if(username!=""){
+                    usererror.innerHTML="User Verified";
+                    // usererror.style.color="green";
+                    // usererror.style.fontStyle="italic";
+                    usererror.className="text-success";
+             }
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <dl>
+       User Name : <dt><input type="text" autofocus id="userName" onkeyup="VerifyUser()"></dt>
+        <dd id="UserError"></dd>
+        <button onclick="RegisterClick()">Regiater</button>
+    </dl>
+</body>
+</html>

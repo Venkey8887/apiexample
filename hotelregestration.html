@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Regestration From</title>
+    <style>
+        h2{
+            text-align: center;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border: 2px;
+            border-radius:10px;
+        }
+        #rooms{
+            margin-top: 30px;
+            display: flex;
+            justify-content:space-around;
+        }
+        #button{
+          align-items: center;  
+          display: flex;
+        }
+        input{
+            align-items: center;
+        }
+        #amenities{
+            display: flex;
+            justify-content: space-around;
+        }
+        h3{
+            text-align: center;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border: 2px;
+            border-radius:10px;
+        }
+        #adamount{
+            text-align: center;
+            font-size: 30px;
+        }
+        dl{
+        display: grid;
+        grid-template-columns: 4fr 8fr;
+        margin-left: 300px;
+        }
+        dt{
+            font-weight: bold;
+            background-color: darkcyan;
+            width: 150px;
+            margin-bottom: 5px;
+        }
+        dd{
+            background-color: rgb(15, 131, 247);
+            width: 150px;
+            margin-bottom: 5px;
+        
+        }
+       button{
+        margin-top: 50px;
+        margin-left: 600px;
+        background-color: black;
+        color: white;
+        padding: 15px;
+       }
+      
+    </style>
+    <!-- <script>
+        var roomtype="";
+        var amenities="";
+        var amount= 0;
+
+        var optdelux=document.getElementById("delux");
+        var optsuit=document.getElementById("suit");
+        function RegisterClick(){
+            var Advance=document.getElementById("txtadvanceamount").value;
+            if(Advance>=1000){
+                document.getElementById("lblname").innerHTML=document.getElementById("txtname").value;
+            document.getElementById("lbldate").innerHTML = document.getElementById("txtdate").value;
+            document.getElementById("lbldays").innerHTML=document.getElementById("txtdays").value;
+            document.getElementById("lblperson").innerHTML=document.getElementById("txtperson").value;
+                if(optdelux.checked){
+                    var Price=2500;
+                    roomtype +=optdelux.value;
+                    amount +=Advance+print;
+                }
+                if(optsuit.checked){
+                    var Prices=4000;
+                    roomtype +=optsuit.value;
+                    amount +=Advance+Prices;
+                }
+
+                var optlocker=document.getElementById("locker");
+                var optac=document.getElementById("ac");
+
+                if(optlocker.checked){
+                    var cost=300;
+                    amenities +=optlocker.value;
+                    amount +=cost;
+                }
+                if(optac.checked){
+                    var costa=1000;
+                    amenities +=costa;
+                }
+            }else{
+                alert("Enter Advance Amount")
+            }
+        }
+    </script> -->
+    <script>
+        var roomtype = "";
+        var amenities = "";
+        var amount = 0;
+    
+        function RegisterClick() {
+            var Advance = parseFloat(document.getElementById("txtadvanceamount").value);
+            if (Advance >= 1000) {
+                var optdelux = document.getElementById("delux");
+                var optsuit = document.getElementById("suit");
+                var optlocker = document.getElementById("locker");
+                var optac = document.getElementById("ac");
+    
+                if (optdelux.checked) {
+                    var Price = 2500;
+                    roomtype = optdelux.value;
+                    amount += Price;
+                }
+                if (optsuit.checked) {
+                    var Prices = 4000;
+                    roomtype = optsuit.value;
+                    amount += Prices;
+                }
+    
+                if (optlocker.checked) {
+                    var cost = 300;
+                    amenities += optlocker.value;
+                    amount += cost;
+                }
+                if (optac.checked) {
+                    var costa = 1000;
+                    amenities += costa;
+                    amount += costa;
+                }
+    
+                document.getElementById("lblroomtype").innerHTML = roomtype;
+                document.getElementById("lblamenities").innerHTML = amenities;
+                document.getElementById("lbladvance").innerHTML = Advance;
+                document.getElementById("lbltotalamount").innerHTML = amount;
+            } else {
+                alert("Enter Advance Amount");
+            }
+        }
+    </script>
+    
+</head>
+<body>
+    <header><h2>Hotel Registration Form</h2></header>
+    <h3>Custmor Information</h3>
+    <div id="cinfo">
+        <dl>
+            <dt>Custeor Name</dt>
+            <dd>
+                <input type="text" id="txtname">
+            </dd>
+            <dt>Checkin Date</dt>
+            <dd>
+                <input type="date" id="txtdate">
+            </dd>
+            <dt>Total Nof Days</dt>
+            <dd>
+                <input type="number" min="0" id="txtdays">
+            </dd>
+            <dt>Total Person</dt>
+            <dd>
+                <input type="number" min="0" id="txtperson">
+            </dd>
+        </dl>
+    </div>
+    <h3>Select Room Type</h3>
+    <div id="rooms">
+        <div>
+            <img src="../public/images/hoteldelux.png" alt="delux img"   height="200">
+           <div>
+            <input type="radio" id="delux" name="roomtype" value="deluxroom"> Delux Room &#8377;2500/-
+           </div>
+        </div>
+        <div>
+            <img src="../public/images/hotelsuite.png" id="suit"  alt="suit img" height="200">
+           <div>
+            <input type="radio" name="roomtype" value="suiteroom"> Suite Room &#8377;4000/-
+           </div>
+        </div>
+    </div>
+    <h3>Select Amenities</h3>
+    <div id="amenities">
+        <div>
+            <img src="../public/images/hotellocker.png" alt="locker img" height="200">
+        <div>
+            <input type="checkbox"  id="locker" value="locker">Locker &#8377;300/-
+        </div>
+        </div>
+        <div>
+            <img src="../public/images/hotelac.png" alt="ac img" height="200" style="margin-top:20px;">
+        <div>
+            <input type="checkbox" id="ac" value="ac">A/C &#8377;1000/-
+        </div>
+        </div>
+    </div>
+    <h3>Advance Amount</h3>
+    <div>
+       Advance Amount : <input type="text" size="20" id="txtadvanceamount">
+    </div>
+        <button type="button" onclick="RegisterClick()">Regeister</button>
+    <div id="detais">
+       <dl>
+        <dt>Custeor Name</dt>
+        <dd id="lblname"></dd>
+        <dt>Checkin Date</dt>
+        <dd id="lbldate"></dd>
+        <dt>Total Persons</dt>
+        <dd id="lblperson"></dd>
+        <dt>Total Days</dt>
+        <dd id="lbldays"></dd>
+        <dt>Room Type</dt>
+        <dd id="lblroomtype"></dd>
+        <dt>Amenaties</dt>
+        <dd id="lblamenities"></dd>
+        <dt>Advance</dt>
+        <dd id="lbladvance"></dd>
+        <dt>Total Amount</dt>
+        <dd id="lbltotalamount"></dd>
+       </dl>
+    </div>
+</body>
+</html>

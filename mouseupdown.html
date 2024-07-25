@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse down/up</title>
+    <script>
+      function Showoffer(){
+        document.getElementById("offer").src="../public/images/offer.png";
+      }
+      function Hideoffer(){
+        document.getElementById("offer").src="../public/images/discountoff.png";
+      }
+    </script>
+</head>
+<body>
+  <div>
+    <img src="../public/images/discountoff.png" id="offer" onmouseup="Hideoffer()" onmousedown="Showoffer()">
+  </div>
+  <p>Hold on the image to show offer</p>
+</body>
+</html>

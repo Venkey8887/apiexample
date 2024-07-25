@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faching API Data</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function Loadproducts(id){
+            fetch(`https://fakestoreapi.com/products/${id}`)
+        .then(function(response){
+                return response.json();
+        })
+        .then(function(data){
+            document.getElementById("lblid").innerHTML=data.id;
+            document.getElementById("lbltitle").innerHTML=data.title;
+            document.getElementById("lblprice").innerHTML=data.price;
+            document.getElementById("lbldescription").innerHTML=data.description;
+            document.getElementById("lblCate").innerHTML=data.category;
+            document.getElementById("pic").src=data.image;
+        })
+        }
+       function GetClick(){
+        document.getElementById("pc").style="display:block"
+            Loadproducts(1);
+       }
+       var productid=1;
+       function nextClick(){
+            productid++;
+            Loadproducts(productid);
+       }
+       function preClick(){
+        productid--;
+            Loadproducts(productid);
+       }
+    </script>
+</head>
+<body class="container-fluid ms-4">
+  <div class="mt-4">
+    <button class="btn btn-danger border border-3" onclick="GetClick()">GetProducts</button>
+  </div>
+  <div class="mt-4 " style="display: none; height: 600px;" id="pc">
+    <dt>Id</dt>
+    <dd id="lblid"></dd>
+    <dt>Title</dt>
+    <dd id="lbltitle"></dd>
+    <dt>Price</dt>
+    <dd id="lblprice"></dd>
+    <dt>Description</dt>
+    <dd id="lbldescription"></dd>
+    <dt>Categeory</dt>
+    <dd id="lblCate"></dd>
+    <dt>Image</dt>
+    <dd><img id="pic" style="height: 200px;width: 200px;"></dd>
+    <div>
+        <button onclick="preClick()" class="btn btn-info "><</button>
+        <button onclick="nextClick()"  class="btn btn-info ">></button>
+    </div>
+  </div>  
+</body>
+</html>

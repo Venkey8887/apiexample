@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Verification</title>
+    <script>
+        function verifymail(){
+            var mail=document.getElementById("email").value;
+            var error=document.getElementById("error");
+            if(mail.indexOf("@")== -1){
+                error.innerHTML="please include @ also";
+            }
+            else{
+                error.innerHTML="";
+            }
+        }
+        function RergisterClick(){
+            var email=document.getElementById("email").value;
+            var usererror=document.getElementById("usererror");
+
+            if(email.indexOf("@")<2){
+                usererror.innerHTML="please include @ with atleast 2 prefix in email".fontcolor("red");
+            }
+            else{
+        var message = `Welcome ${email.substring(0, email.indexOf("@"))}<br> registered successfully at our domain ${email.substring(email.indexOf("@") + 1)}`;
+        usererror.innerHTML = message;
+    }
+        }
+    </script>
+</head>
+<body>
+   <div>
+    <fieldset>
+        <legend>Verify Email</legend>
+        <input onblur="verifymail()" type="text" id="email">
+        <div id="error"></div>
+    </fieldset>
+   </div>
+   <div>
+    <h2>Register</h2>
+    <dl>
+        <dt>Enter E-mail</dt>
+        <dd><input type="text" id="email"  autofocus></dd>
+        <dd id="usererror"></dd>
+    </dl>
+    <button onclick="RergisterClick()">Regeister</button>
+   </div>
+</body>
+</html>

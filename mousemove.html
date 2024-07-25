@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Getposition(e){
+            var flag=document.getElementById("flag");
+            flag.style.position="fixed";
+            flag.style.left=e.clientX + "px";
+            flag.style.top=e.clientY + "px";
+        }
+    </script>
+</head>
+<body onmousemove="Getposition(event)">
+    <div style="height: 1000px;">
+
+    </div>
+    <img src="../public/images/flaggifind.png" id="flag" width="50" height="50">
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Show</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function LoadProducts(id){
+            fetch(`https://fakestoreapi.com/products/${id}`)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                document.getElementById("pic").src=data.image;
+                document.getElementById("title").innerHTML=data.title;
+                document.getElementById("price").innerHTML="&#8377;"+ data.price;
+                document.getElementById("rate").innerHTML=data.rating.rate + "<span class='bi bi-star-fill text-info'></span>"
+            })
+        }
+        function bodyload(){
+            LoadProducts(1);
+        }
+        var productId=1;
+        function NextClick(){
+            productId++;
+            LoadProducts(productId);
+        }
+        function PreviousClick(){
+            productId--;
+            LoadProducts(productId);
+        }
+        function SlideShow(){
+            productId++;
+            LoadProducts(productId);
+        }
+            var show;
+        function PlayClick(){
+            show=setInterval(SlideShow,3000);
+            document.getElementById("status").innerHTML="Slise Show Started";
+        }
+        function PauseClick(){
+            clearInterval(show);
+            document.getElementById("status").innerHTML="Slise Show Stopped";
+        }
+    </script>
+    <style>
+        #price{
+            position: fixed;
+            top: 200px;
+            right:380px;
+            border: 2px solid black;
+            background-color: yellow;
+            padding: 5px;
+            border-top-right-radius:25px;
+            border-bottom-right-radius:25px;
+
+        }
+    </style>
+</head>
+<body class="container-fluid" onload="bodyload()">
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="card mt-3 p-3" style="width:350px;">
+            <div class="card-header text-center">
+                <button onclick="PlayClick()" class="btn btn-danger"><span class="bi bi-play"></span></button>
+                <button onclick="PauseClick()" class="btn btn-danger"><span class="bi bi-pause"></span></button>
+                <p id="status"></p>
+            </div>
+            <img id="pic" height="200" class="card-img-top">
+            <div class="card-header" style="height: 160px;" >
+                <p id="title"></p>
+            </div>
+            <div class="card-body">
+                <p id="price"></p>
+                <p id="rate"></p>
+            </div>
+            <div class="card-footer text-center">
+                <button onclick="PreviousClick()" class="btn btn-danger"><span class="bi bi-chevron-left"></span></button>
+                <button onclick="NextClick()" class="btn btn-danger"><span class="bi bi-chevron-right"></span></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

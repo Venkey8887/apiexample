@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Statement</title>
+    <script>
+        var userDetails={
+            "Name":"john@123",
+            "Password":"john_12"
+        }
+        function loginClick(){
+            var Name=document.getElementById("txtName").value;
+            var password=document.getElementById("txtpassword").value;
+            if(Name==userDetails.Name && password==userDetails.Password){
+                document.write("<h2>Login Succesfully done");
+            }else{
+                document.getElementById("msg").innerHTML="Invalid User details";
+            }
+        }
+    </script>
+</head>
+<body>
+   <div>
+        <fieldset>
+            <legend>User Details</legend>
+            <dl>
+                <dt>User Name</dt>
+                <dd><input type="text" id="txtName"></dd>
+                <dt>Password</dt>
+                <dd><input type="password" id="txtpassword"></dd>
+                <button onclick="loginClick()">Login</button>
+            </dl>
+        </fieldset>
+        <h2 id="msg"></h2>
+   </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timer Events</title>
+        <script>
+         
+            function Timer(){
+                var now = new Date();
+                document.querySelector("h1").innerHTML = now.toLocaleTimeString();
+            }
+            var time;
+            function bodyload(){
+                time = setInterval(Timer,1000);
+            }
+            function StopClick(){
+                clearInterval(time);  
+            }
+            function StartClick(){
+                bodyload();
+            }
+        </script>
+    </head>
+    <body onload="bodyload()">
+        <h1 align="center"></h1>
+        <button onclick="StopClick()">Stop Time</button>
+        <button onclick="StartClick()">Start Time</button>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock Slutation</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function PrintTime(){
+            var now;
+            now=new Date();
+            document.getElementById("time").innerHTML=now.toLocaleTimeString();
+        }
+        function StatusMessage(){
+            var now=new Date();
+             var hrs=now.getHours();
+             msg=document.getElementById("msg");
+            var icon=document.getElementById("icon");
+          if(hrs>=0 && hrs<=12){
+            msg.innerHTML="Good Morning";
+            icon.className="bi bi-sun";
+          }else if(hrs>12 && hrs <=18){
+            msg.innerHTML="Good Afternoon";
+            icon.className="bi bi-sun";
+          }else if(hrs>18 && hrs<=23){
+            msg.innerHTML="Good Evening";
+            icon.className="bi bi-cloud-sun-fill";
+          }
+        }
+        function bodyload(){
+            setInterval(PrintTime,1000);
+            StatusMessage();
+        }
+    </script>
+</head>
+<body onload="bodyload()" class="container-fluid">
+   <nav class="btn-toolbar justify-content-between bg-danger mt-3">
+       <div class="btn-group">
+        <button class="btn btn-danger">Home</button>
+        <button class="btn btn-danger">About</button>
+        <button class="btn btn-danger">Contact</button>
+       </div>
+       <div class="btn-group">
+        <button class="btn btn-danger">
+         <span id="icon"></span>
+        <span id="msg"></span>
+        </button>
+       </div>
+       <div class="btn-group">
+        <button class="btn btn-danger"><span id="colock"></span></button>
+        <button class="btn btn-danger"><span id="time"></span></button>
+       </div>
+   </nav>
+</body>
+</html>

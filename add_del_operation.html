@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding | Deleting Example</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        var products=[];
+        var product={};
+        function LoadProducts(){
+            document.querySelector("tbody").innerHTML="";
+            for(var item of products){
+                var tr=document.createElement("tr");
+                var tdName=document.createElement("td");
+                var tdPrice=document.createElement("td");
+                var tdCity=document.createElement("td");
+                var tdDetails=document.createElement("td");
+                var tdDelete=document.createElement("td");
+
+                tdName.innerHTML=item.Name;
+                tdPrice.innerHTML=item.Price;
+                tdCity.innerHTML=item.City;
+                
+                var btnDetails=document.createElement("button");
+                btnDetails.innerHTML=`<span class="bi bi-eye-fill"></span>`;
+                btnDetails.className="btn btn-info";
+
+                var btnDelete=document.createElement("button");
+                btnDelete.innerHTML=`<span class="bi bi-trash"></span>`;
+                btnDelete.className="btn btn-danger";
+
+                tdDetails.appendChild(btnDetails);
+                tdDelete.appendChild(btnDelete);
+
+                tr.appendChild(tdName);
+                tr.appendChild(tdPrice);
+                tr.appendChild(tdCity);
+                tr.appendChild(tdDetails);
+                tr.appendChild(tdDelete);
+                
+                // btnDetails.onclick=function(){
+                    
+                // }
+                // Inside the LoadProducts function
+btnDetails.onclick = function() {
+    var productName = this.parentElement.parentElement.querySelector('td:first-child').innerText;
+    var product = products.find(function(item) {
+        return item.Name === productName;
+    });
+    if (product) {
+        document.getElementById("name").innerText = product.Name;
+        document.getElementById("price").innerText = product.Price;
+        document.getElementById("shippedto").innerText = product.City;
+        $('#productModal').modal('show'); // Show the modal using jQuery
+    }
+}
+
+
+                // btnDelete.onclick=function(){
+                //     var result=products.find(function(value){
+                //         return value.Name==item.Name
+                //     });
+                //     var i=products.findIndex(function(value){
+                //         return value.Name==item.Name;
+                //     });
+                //     products.splice(i,1);
+                //     LoadProducts();
+                // }
+                btnDelete.onclick = function() {
+                  var productName = this.parentElement.parentElement.firstChild.innerHTML;
+                     var i = products.findIndex(function(value) {
+                      return value.Name === productName;
+                  });
+                     products.splice(i, 1);
+                     LoadProducts();
+                }
+
+
+                document.querySelector("tbody").appendChild(tr);
+            }
+        }
+        function bodyload(){
+            LoadProducts();
+        }
+        function AddClick(){
+            product={
+                "Name":document.getElementById("txtName").value,
+                "Price":document.getElementById("txtPrice").value,
+                "City":document.getElementById("lstCities").value
+            }
+            products.push(product);
+            LoadProducts();
+            alert("Item added Succesfully..")
+            document.getElementById("txtName").value="";
+            document.getElementById("txtPrice").value="";
+
+        }
+        function InfoClick(){
+            
+        }
+    </script>
+</head>
+<body onload="bodyload()" class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div>
+                <h3>Add New Product</h3>
+                <dl>
+                    <dt>Name</dt>
+                    <dd>
+                        <input type="text" id="txtName" class="form-control">
+                    </dd>
+                    <dt>Pricee</dt>
+                    <dd>
+                        <input type="text" id="txtPrice" class="form-control">
+                    </dd>
+                    <dt>Shipped To</dt>
+                    <dd>
+                        <select class="form-select" id="lstCities">
+                            <option>Delhi</option>
+                            <option>Hyd</option>
+                            <option>Mumbai</option>
+                            <option>Bangloor</option>
+                        </select>
+                    </dd>
+                </dl>
+                <button onclick=" AddClick()" class="btn btn-primary w-100">Add Product</button>
+            </div>
+        </div>
+        <div class="col-9">
+            <h3>Products List</h3>
+            <table class="table-hover table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Shipped To</th>
+                        <th colspan="2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <div class="modal fade" id="ProductsModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Product Details</h3>
+                            <button data-bs-dismiss="modal" class="btn-close"></button>
+                        </div>
+                        <div class="modal-body">
+                           <dl>
+                            <dt>Name</dt>
+                            <dd id="name"></dd>
+                            <dt>Price</dt>
+                            <dd id="price"></dd>
+                            <dt>Shipped TO</dt>
+                            <dd id="shippedto"></dd> 
+                           </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script> 
+</body>
+</html>

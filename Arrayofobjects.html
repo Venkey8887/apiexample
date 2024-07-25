@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function LoadProducts(){
+            fetch("../data/products.json")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                
+                for(var item of data){
+                    
+                    var div=document.createElement("div");
+                    div.className="card m-1 p-2 ";
+                    div.style.width="200px";
+                    div.innerHTML=`
+                        <div class="card-header">
+                            <img class="card-img-top" height:"150"; src="${item.Photo}">
+                        </div>
+                        <div class="card-body">
+                            <h2 class="card-title">${item.Name}</h2>
+                         </div>
+                         <div class="card-footer">
+                            <p class="card-subtitle">&#8377;${item.Price}</p>
+                        </div>
+                    `;
+                    var tr=document.createElement("tr");
+                    tr.style.textAlign="center";
+                    var tdName=document.createElement("td");
+                   
+                    tdName.innerHTML=`${item.Name}`;
+                    var tdPrice=document.createElement("td");
+                    
+                    tdPrice.innerHTML=`${item.Price}`;
+                    var tdimg=document.createElement("td");
+                    
+                    var img=document.createElement("img");
+                    img.src=`${item.Photo}`;
+                    img.style.height="100";
+                    img.style.width="200px";
+                   
+                    tdimg.appendChild(img);
+
+                    tr.appendChild(tdName);
+                    tr.appendChild(tdPrice);
+                    tr.appendChild(tdimg);
+                    document.querySelector("tbody").appendChild(tr);
+                    document.getElementById("container").appendChild(div);
+                }
+            })
+        }
+        function bodyload(){
+            LoadProducts();
+        }
+    </script>
+</head>
+<body onload="bodyload()" class="container-fluid">
+    <div id="container" class="d-flex justify-content-between flex-row-reverse">
+
+    </div>
+    <h2>Products Table</h2>
+    <div class="mt-4">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr align="center">
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Photo</th>
+                </tr>
+            </thead>
+            <tbody class="table tab-content">
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

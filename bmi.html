@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+    <script>
+        function myFunction() {
+            var mass = document.getElementById("w").value;
+            var height = document.getElementById("h").value;
+
+            // Check if input values are valid numbers
+            if (isNaN(mass) || isNaN(height) || mass <= 0 || height <= 0) {
+                alert("Please enter valid positive numbers for weight and height.");
+                return;
+            }
+
+            var bmi = mass / ((height/100) * (height/100));
+            var bmiResult = document.getElementById("bm").value=bmi.toFixed(3);
+           // bmiResult.value = bmi.toFixed(2); // Display BMI with two decimal places
+
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <dt>Enter your Height:</dt>
+        <dd><input type="text" id="h"></dd>
+        <dt>Enter your Weight:</dt> 
+        <dd><input type="text" id="w"><button type="button" onclick="myFunction()">Submit</button></dd>
+        <dt>Your BMI is:</dt>
+        <dd><input type="text" id="bm" readonly></dd>
+    </form>
+</body>
+</html>

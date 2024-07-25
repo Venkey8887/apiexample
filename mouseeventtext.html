@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse TextColor</title>
+    <script>
+        function SetColor(color){
+            document.querySelector("h1").style.color=color;
+        }
+    </script>
+</head>
+<body>
+    <div style="display: flex;">
+        <div onmouseover="SetColor(this.id)"  id="red" style="background-color: red; width: 400px;">Red</div>
+        <div onmouseover="SetColor(this.id)" id="green" style="background-color:green;width: 400px;">Green</div>
+        <div onmouseover="SetColor(this.id)" id="blue" style="background-color: blue;width: 400px;">Blue</div>
+    </div>
+    <h1 align="center">Sample Text</h1>
+    <img src="../public/images/flaggifind.png">
+</body>
+</html>

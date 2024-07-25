@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function numberCheck(){
+            var n=parseInt(document.getElementById("txteven").value);
+            var msg= document.getElementById("msg");
+            if(n%2==0){
+               msg.innerHTML="";
+            }else{
+                msg.innerHTML="Not a Even Number".fontcolor('red');
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Enter Even Number</legend>
+        <input onblur="numberCheck()" type="text" id="txteven">
+        <div>
+            <span id="msg"></span>
+        </div>
+    </fieldset>
+</body>
+</html>

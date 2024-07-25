@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Manipluations</title>
+    <script>
+        function SubmitClick(){
+            var name= document.getElementById("UserName").value;
+            if(name==""){
+                var error=document.getElementById("errorMessage").innerHTML="User Name Required";
+            }
+        }
+        function CapsCheck(){
+            var name=document.getElementById("UserName").value;
+            var caps=name.charCodeAt(0);
+            if(caps<=65 && caps<=90){
+                document.getElementById("errorMessage").innerHTML="";
+            }
+            else{
+                document.getElementById("errorMessage").innerHTML="Name starts with Captial letter only";
+            }
+        }
+    </script>
+</head>
+<body>
+    User Name
+    <dt><input onkeyup="CapsCheck()" type="text" autofocus id="UserName"></dt>
+    <dd id="errorMessage"></dd>
+    <button onclick="SubmitClick()">Submit</button>
+</body>
+</html>

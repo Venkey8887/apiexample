@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api book-store-ccpp</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+       function LoadProducts(){
+        fetch("https://apis.ccbp.in/book-store")
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data){
+           for(var item of data.search_results){
+                var div = document.createElement("div");
+                div.className="card m-2 p-2";
+                div.style.width="250px";
+                div.innerHTML=`
+                    <img src="${item.imageLink}" height="150" class="card-img-top">
+                    <div class="card-header" style="height:180px">
+                        <p>${item.title}</p> 
+                    </div>
+                    <div class="card-body">
+                        <h3>${item.author}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-success">More Details</button>
+                    <div>
+                `;
+                document.getElementById("container").appendChild(div);
+                
+           }
+        })
+       }
+       function bodyload(){
+        LoadProducts();
+       }
+    </script>
+</head>
+<body onload="bodyload()" class="container-fluid">
+    <div id="container" class="d-flex flex-wrap overflow-auto text-center" style="height: 500px;">
+
+    </div>
+</body>
+</html>

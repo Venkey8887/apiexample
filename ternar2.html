@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Preview Example</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        var buttonText="Hide Preview";
+        var displayStyle="block";
+        function Toggle(){
+            document.getElementById("btnPreview").innerHTML=buttonText;
+            document.getElementById("imgContainer").style.display=displayStyle;
+        }
+        function bodyload(){
+            Toggle();
+        }
+        function PreviewTOggle(){
+            buttonText=(buttonText=="Hide Preview")?"Show Preview":"Hide Preview";
+            displayStyle=(displayStyle=="block")?"none":"block";
+            Toggle();
+        }
+    </script>
+</head>
+<body class="container-fluid" onload="bodyload()">
+  <div class="mt-2">
+    <button onclick="PreviewTOggle()" id="btnPreview" class="btn btn-primary"></button>
+  </div>  
+  <div class="mt-2" id="imgContainer">
+    <img src="../public/images/mobile3.png" class="img-thumbnail border-success border-5 " width="200" height="200">
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ternary Operator Example</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        var cbText="Out of Stock";
+        function Toggle(){
+            document.getElementById("checkboxText").innerHTML=cbText;
+        }
+        function bodyload(){
+            Toggle();
+        }
+        function checkBoxChange(){
+          var stock=document.getElementById("stock");
+          cbText=(stock.checked)?"Available":"Out of Stock";
+          Toggle();
+        }
+    </script>
+</head>
+<body onload="bodyload()" class="container-fluid">
+    <div class="form-switch">
+         <input  class="form-check-input me-3" onchange="checkBoxChange()" type="checkbox" id="stock"><lable id="checkboxText" class="form-label"></lable> 
+    </div>
+</body>
+</html>

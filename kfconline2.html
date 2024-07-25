@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KFC | Online</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body class="container-fluid">
+    <header>
+        <img src="../public/images/kfconline.png" height="160" width="100%" class="mt-2">
+    </header>
+    <section>
+        <div class="accordion" id="kfc">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button data-bs-target="#custmor" data-bs-toggle="collapse" class="btn btn-danger w-100">Costmor Info</button>
+                </div>
+                <div class="accordion-collapse collapse show" id="custmor" data-bs-parent="#kfc">
+                    <div class="accordion-body">
+                        <dl>
+                            <dt>Name</dt>
+                            <dd>
+                                <input type="text" id="txtname" class="form-control">
+                            </dd>
+                            <dt>Mobile</dt>
+                            <dd>
+                                <input type="text" id="txtmobile" class="form-control">
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class="btn btn-danger w-100" data-bs-target="#meal" data-bs-toggle="collapse">
+                        Select Your Meal
+                    </button>
+                </div>
+                <div class="collapse accordion-collapse">
+                    <div class="accordion-body" id="meal" data-bs-parent="#kfc">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" style="width: 280px;">
+                                    <img src="../public/images/kfcburger.png" height="170px" class="card-img-top">
+                                    <div class="card-header">
+                                        <h3>OMG Burger</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <input type="radio" name="meal" id="optburger" 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   <script src="../node_modules/jquery/dist/jquery.js"></script> 
+   <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>

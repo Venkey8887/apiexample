@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       function change (){
+        var p=document.getElementById("para");
+        p.innerText="This is Manipluated DOM";
+        var h=document.createElement("h1");
+        h.innerHTML="Welcom to DOM Maniplutions";
+        document.Write(p);
+        document.Write(h);
+      }
+    </script>
+</head>
+<body>
+    <p id="para">This is normal Dom</p>
+   <button onclick="change()">Submit</button>
+</body>
+</html>

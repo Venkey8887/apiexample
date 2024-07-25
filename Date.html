@@ -1,0 +1,8 @@
+<script>
+    var now=new Date();
+    var date=now.toLocaleTimeString();
+    var days=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    var months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
+
+    document.write(`Current Date=${days[now.getDay()]}<br>Month=${months[now.getMonth()]}<br>Year=${now.getFullYear()}`);
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Example</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function Verifycard(){
+           var textcard= document.getElementById("textcard").value;
+           var pic=document.getElementById("pic");
+
+           if(textcard.startsWith("4444")){
+            pic.src="../public/images/master.png";
+           }else if(textcard.startsWith("5555")){
+            pic.src="../public/images/visa.png";
+           }else{
+            pic.src="";
+            pic.alt="Invalid";
+           }
+        }
+        function VerifyMail(){
+            var textmail=document.getElementById("textmail").value;
+            var msg=document.getElementById("errormg");
+            if(textmail.endsWith("gmail.com")){
+                msg.innerHTML="";
+            }else{
+                msg.innerHTML="Enter a Valid Mail";
+            }
+        }
+    </script>
+</head>
+<body class="container-fluid">
+    <h2>Verify Card</h2>
+    <div class="input-group">
+        <input type="text" class="form-control" id="textcard" onkeyup="Verifycard()" >
+        <span class="input-group-text"><img height="50" width="80" id="pic"></span>
+    </div>
+    <h2>Verify Email</h2>
+    <div class="input-group">
+        <input type="text" id="textmail" class="form-control" onblur="VerifyMail()">
+    </div>
+    <div id="errormg" class="input-group"></div>
+</body>
+</html>

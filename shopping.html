@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping | FakeStore</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function  LoadProducts(url){
+            document.getElementById("catalog").innerHTML="";
+            fetch(url)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                for(var item of data){
+                var div=document.createElement("div");
+                div.style.width="200px"
+                div.className="card m-2 p-2"
+                div.innerHTML=`
+                    <img src="${item.image}" height="150" class="card-img-top">
+                    <div class="card-header" style="height:170px">
+                    <p>${item.title}</p>
+                    </div>
+                    <div class="card-body">
+                        <h3>&#8377;${item.price}</h3>
+                    </div>
+                    <div class="card-footer">
+                        <button onclick="AddToCartClick(${item.id})" class="btn btn-danger w-100">
+                            <span class="bi bi-cart4"></span>Add to Cart
+                        </button>
+                    </div>
+                `;
+                document.getElementById("catalog").appendChild(div);
+               }
+            })
+        }
+        function LoadCategories(){
+            fetch("https://fakestoreapi.com/products/categories")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                data.unshift("All");
+                for(var item of data){
+                    var option=document.createElement("option");
+                    option.text=item.toUpperCase();
+                    option.value=item;
+
+                    document.getElementById("lstCategories").appendChild(option);
+                }
+            })
+        }
+        function bodyload(){
+            LoadCategories();
+            LoadProducts("https://fakestoreapi.com/products");
+            GetCartItemsCount();
+        }
+        function categorychange(){
+            var Categoryname=document.getElementById("lstCategories").value;
+            if(Categoryname=="All"){
+                LoadProducts("https://fakestoreapi.com/products");
+            } else{
+                LoadProducts(`https://fakestoreapi.com/products/category/${Categoryname}`);
+            }
+        }
+        var CartItems=[];
+        function GetCartItemsCount(){
+            document.getElementById("lblCount").innerHTML=CartItems.length;
+        }
+        function AddToCartClick(id){
+            fetch(`https://fakestoreapi.com/products/${id}`)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                CartItems.push(data);
+                GetCartItemsCount();
+                alert(`${data.title} \nadded to Cart`)
+            })
+        }
+       
+        function ShowCart(){
+            document.querySelector("tbody").innerHTML="";
+            for(var item of CartItems){
+                var tr=document.createElement("tr");
+                var tdname=document.createElement("td");
+                var tdprice=document.createElement("td");
+                var tdPreview=document.createElement("td");
+                var tdtrash=document.createElement("td");
+                
+                var img=document.createElement("img");
+                img.height="50";
+                img.width="50";
+                img.src=item.image;
+                tdPreview.appendChild(img);
+
+                tdname.innerHTML=item.title;
+                tdprice.innerHTML=item.price;
+
+                tr.appendChild(tdname);
+                tr.appendChild(tdprice);
+                tr.appendChild(tdPreview);
+                tr.appendChild(tdtrash);
+
+              
+            }
+            document.querySelector("tbody").appendChild(tr);
+        }
+    </script>
+</head>
+<body class="container-fluid" onload="bodyload()">
+    <header class="bg-danger p-2  text-center text-white">
+        <h1><span class="bi bi-cart3"></span> Shopping</h1>
+    </header>
+    <section class="row">
+            <div class="col-3">
+                    <label class="form-label">Select Category</label>
+                    <div>
+                        <select onchange="categorychange()" class="form-select" id="lstCategories">
+
+                        </select>
+                    </div>
+            </div>
+            <div class="col-7">
+                <div id="catalog" class="d-flex overflow-auto flex-wrap" style="height:500px">
+
+                </div>
+            </div>
+            <div class="col-2 mt-2">
+                <button onclick="ShowCart()" data-bs-target="#cart" data-bs-toggle="modal" class="btn btn-danger w-100">
+                    <span class="bi bi-cart4"></span>[<span id="lblCount"></span>]
+                    Your Cart Items
+                </button>
+                <div class="modal fade" id="cart">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>Your Cart Items</h3>
+                                <button class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-hover">
+                                    <thead>
+                                       <tr>
+                                        <th>Nane</th>
+                                        <th>Price</th>
+                                        <th>preview</th>
+                                        <th><span class="bi bi-trash3-fill"></span></th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+   <script src="../node_modules/jquery/dist/jquery.js"></script>
+   <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script> 
+</body>
+</html>
